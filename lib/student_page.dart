@@ -168,7 +168,13 @@ class StudentPageMobile extends StatelessWidget {
                                     SizedBox(
                                       height: 10,
                                     ),
-                                    Text(payment.date),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(payment.date),
+                                        ReminderBtnWithoutIcon(),
+                                      ],
+                                    ),
                                   ],
                                 ),
                               ),
@@ -330,6 +336,17 @@ class StudentPageWeb extends StatelessWidget {
                           ),
                         ),
                       ),
+                      Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text(
+                            'Action',
+                            style: TextStyle(
+                                fontSize: 16.0, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -396,6 +413,13 @@ class StudentPageWeb extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Expanded(
+                              flex: 1,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: ReminderBtn(),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -408,6 +432,73 @@ class StudentPageWeb extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class ReminderBtn extends StatefulWidget {
+  @override
+  _ReminderBtnState createState() => _ReminderBtnState();
+}
+
+class _ReminderBtnState extends State<ReminderBtn> {
+  bool isRemind = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      icon: Icon(Icons.add_alert),
+      onPressed: () {
+        setState(() {
+          isRemind = !isRemind;
+        });
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                content: isRemind
+                    ? Text('Reminder will be sent 1 day before the deadline')
+                    : Text('Reminder canceled'),
+              );
+            });
+      },
+      style: ElevatedButton.styleFrom(
+        primary: Color(0xFF407BFF),
+      ),
+      label: isRemind ? Text('Cancel Reminder') : Text('Remind Me'),
+    );
+  }
+}
+
+class ReminderBtnWithoutIcon extends StatefulWidget {
+  @override
+  _ReminderBtnWithoutIconState createState() => _ReminderBtnWithoutIconState();
+}
+
+class _ReminderBtnWithoutIconState extends State<ReminderBtnWithoutIcon> {
+  bool isRemind = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        setState(() {
+          isRemind = !isRemind;
+        });
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                content: isRemind
+                    ? Text('Reminder will be sent 1 day before the deadline')
+                    : Text('Reminder canceled'),
+              );
+            });
+      },
+      style: ElevatedButton.styleFrom(
+        primary: Color(0xFF407BFF),
+      ),
+      child: isRemind ? Text('Cancel Reminder') : Text('Remind Me'),
     );
   }
 }
