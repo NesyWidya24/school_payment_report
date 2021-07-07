@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:school_payment_report/model/payment.dart';
-import 'package:school_payment_report/step_payment.dart';
 
 class DetailPayment extends StatelessWidget {
   final Payment payment;
@@ -227,33 +226,6 @@ class DetailPaymentMobile extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Center(
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return StepPayment();
-                            }));
-                          },
-                          child: Container(
-                            margin: EdgeInsets.only(top: 10.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.black45,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Text(
-                                'Klik disini untuk Tata Cara Pembayaran',
-                                style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w100),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                 ),
@@ -336,8 +308,7 @@ class DetailPaymentWeb extends StatelessWidget {
                                 Text(
                                   payment.typeOfBill,
                                   style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.indigoAccent),
+                                      fontSize: 18, color: Colors.indigoAccent),
                                 ),
                               ],
                             ),
@@ -416,7 +387,7 @@ class DetailPaymentWeb extends StatelessWidget {
                                   padding: const EdgeInsets.all(10.0),
                                   child: Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.stretch,
+                                        CrossAxisAlignment.stretch,
                                     children: <Widget>[
                                       Text(
                                         'Mohon melakukan pembayaran paling lambat tanggal',
@@ -461,33 +432,6 @@ class DetailPaymentWeb extends StatelessWidget {
                               ),
                             ),
                           ],
-                        ),
-                      ),
-                    ),
-                    Center(
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                                return StepPayment();
-                              }));
-                        },
-                        child: Container(
-                          margin: EdgeInsets.only(top: 10.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.black45,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Text(
-                              'Klik disini untuk Tata Cara Pembayaran',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w100),
-                            ),
-                          ),
                         ),
                       ),
                     ),

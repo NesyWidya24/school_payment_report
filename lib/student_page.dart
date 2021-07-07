@@ -5,7 +5,7 @@ import 'package:school_payment_report/step_payment.dart';
 import 'detail_payment.dart';
 
 class StudentPage extends StatelessWidget {
-  String? name;
+  final String name;
 
   StudentPage({required this.name});
 
@@ -28,7 +28,7 @@ class StudentPage extends StatelessWidget {
 }
 
 class StudentPageMobile extends StatelessWidget {
-  String? name;
+  final String name;
 
   StudentPageMobile({required this.name});
 
@@ -143,7 +143,9 @@ class StudentPageMobile extends StatelessWidget {
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   payment.statPayment,
-                                  style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),
+                                  style: TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
                               flex: 1,
@@ -166,9 +168,7 @@ class StudentPageMobile extends StatelessWidget {
                                     SizedBox(
                                       height: 10,
                                     ),
-                                    Text(
-                                      payment.date
-                                    ),
+                                    Text(payment.date),
                                   ],
                                 ),
                               ),
@@ -190,7 +190,7 @@ class StudentPageMobile extends StatelessWidget {
 }
 
 class StudentPageWeb extends StatelessWidget {
-  String? name;
+  final String name;
 
   StudentPageWeb({required this.name});
 
@@ -279,9 +279,9 @@ class StudentPageWeb extends StatelessWidget {
                   ),
                 ),
               ),
-
               Padding(
-                padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
+                padding:
+                    const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
                 child: Card(
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -335,7 +335,8 @@ class StudentPageWeb extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
+                padding:
+                    const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
                 child: ListView.builder(
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,

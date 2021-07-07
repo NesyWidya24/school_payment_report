@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:school_payment_report/detail_payment.dart';
 import 'package:school_payment_report/model/student.dart';
 import 'package:school_payment_report/data_student.dart';
 
@@ -95,9 +94,11 @@ class AdminPageMobile extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Expanded(
-                              child: Image.asset(student.imageProfile,
+                              child: Image.asset(
+                                student.imageProfile,
                                 height: 30,
-                                width: 30,),
+                                width: 30,
+                              ),
                               flex: 1,
                             ),
                             Expanded(
